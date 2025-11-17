@@ -5,18 +5,3 @@ timm
 pillow
 numpy
 python-multipart
-```
-
-### 4. Update .gitignore
-
-Add to your `.gitignore`:
-```
-hrnet_kulitan_best.pt
-*.pt
-```
-
-### 5. How to Get Your Google Drive File ID
-
-From this URL:
-```
-# https://drive.google.com/file/d/1a2B3c4D5e6F7g8H9i0J/view?usp=sharing
