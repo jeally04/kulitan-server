@@ -5,7 +5,6 @@ timm
 pillow
 numpy
 python-multipart
-gdown
 ```
 
 ### 4. Update .gitignore
@@ -20,4 +19,4 @@ hrnet_kulitan_best.pt
 
 From this URL:
 ```
-https://drive.google.com/file/d/1a2B3c4D5e6F7g8H9i0J/view?usp=sharing
+# https://drive.google.com/file/d/1a2B3c4D5e6F7g8H9i0J/view?usp=sharing
