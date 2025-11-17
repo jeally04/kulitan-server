@@ -3,12 +3,15 @@ import torch
 import timm
 import uvicorn
 import numpy as np
+import gdown
+import os
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from PIL import Image
 
 # ==== CONFIG ====
 MODEL_PATH = "hrnet_kulitan_best.pt"
+GDRIVE_FILE_ID = "1OWUBhmk6ZJ1O69loiDcmuzZ8OWr-t5qh"  # Replace with your file ID
 IMG_SIZE = 224
 
 # Kulitan class names
@@ -21,6 +24,20 @@ CLASS_LABELS = [
     'ta', 'tang', 'te', 'ti', 'ti-i', 'to', 'tu', 'tu-u', 'u', 'unknown'
 ]
 NUM_CLASSES = len(CLASS_LABELS)
+
+# ==== DOWNLOAD MODEL FROM GDRIVE ====
+def download_model():
+    """Download model from Google Drive if not exists locally"""
+    if not os.path.exists(MODEL_PATH):
+        print(f"Downloading model from Google Drive...")
+        url = f"https://drive.google.com/uc?id={GDRIVE_FILE_ID}"
+        gdown.download(url, MODEL_PATH, quiet=False)
+        print(f"Model downloaded to {MODEL_PATH}")
+    else:
+        print(f"Model already exists at {MODEL_PATH}")
+
+# Download model on startup
+download_model()
 
 # ==== LOAD MODEL ====
 model = timm.create_model("hrnet_w32", pretrained=False, num_classes=NUM_CLASSES)
