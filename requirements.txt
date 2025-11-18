@@ -1,8 +1,10 @@
+# Use PyTorch CPU wheels
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 torch==2.5.1+cpu
-torchvision==0.20.1+cpu
+torchvision==0.21.0+cpu
 
+# Model and API dependencies
 timm==0.9.2
 fastapi==0.115.0
 uvicorn[standard]==0.30.0
